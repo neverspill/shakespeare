@@ -39,9 +39,13 @@ Features
 Usage
 ======
 
+The very first thing to do is to let the code know where 'bad stuff' is
+
+	./shakespeare.py -g good.bib -k examples/ --overwrite-knowledge --train
+
 Train naive\_bayes algorithm
 
-    ./shakespeare -g thegoodstuff.bib -b thebadstuff.bib --train
+    ./shakespeare -g thegoodstuff.bib -b thebadstuff.bib -k examples --train
 
 Find papers from nature nano and PNAS
 

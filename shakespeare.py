@@ -85,10 +85,10 @@ def load_knowledge(knowledge):
             exit()
 
         kfiles = glob.glob(knowledge+'/*')
-        if not 'nb.p' in kfiles:
+        if not any(f.endswith('nb.p') for f in kfiles):
             print("Knowledge does not contain nb.p (pickled naive bayes object)")
             exit()
-        if not 'kw.p' in kfiles:
+        if not any(f.endswith('kw.p') for f in kfiles):
             print("Knowledge does not contain kw.p (pickled keyword list)")
             exit()
 
@@ -121,7 +121,7 @@ def train(good_sources, bad_sources,method,naive_bayes=None,keywords=list()):
         all_kw = keywords + list(new_kws)
 
     else:
-        print('Only using keyownrds from this content set')
+        print('Only using keywords from this content set')
         all_kw = list(set(good_samples+bad_samples))
         X = np.zeros((2,len(all_kw)))
 
